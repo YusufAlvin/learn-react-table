@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Table from './Table';
-import Genres from './Genres';
+// import Genres from './Genres';
 import { useState, useEffect, useMemo } from 'react';
 import './style.css';
 
@@ -16,62 +16,23 @@ export default function App() {
   const columns = useMemo(() => {
     return [
       {
-        // first group - TV Show
-        Header: 'TV Show',
-        // first group column
-        columns: [
-          {
-            Header: 'Name',
-            accessor: 'show.name',
-          },
-          {
-            Header: 'Type',
-            accessor: 'show.type',
-          },
-        ],
+        Header: 'Id',
+        accessor: 'id',
       },
       {
-        // second group - Details
-        Header: 'Details',
-        // second group columns
-        columns: [
-          {
-            Header: 'Language',
-            accessor: 'show.language',
-          },
-          {
-            Header: 'Genre(s)',
-            accessor: 'show.genres',
-            // Cell method will provide the cell value; we pass it to render a custom component
-            Cell: ({ value }) => <Genres genres={value} />,
-          },
-          {
-            Header: 'Runtime',
-            accessor: 'show.runtime',
-            // Cell method will provide the value of the cell; we can create a custom element for the Cell
-            Cell: ({ value }) => {
-              const hour = Math.floor(value / 60);
-              const min = Math.floor(value % 60);
-              return (
-                <>
-                  {hour > 0 ? `${hour} hr${hour > 1 ? 's' : ''}` : ''}{' '}
-                  {min > 0 ? `${min} min${min > 1 ? 's' : ''}` : ''}
-                </>
-              );
-            },
-          },
-          {
-            Header: 'Status',
-            accessor: 'show.status',
-          },
-        ],
+        Header: 'User Id',
+        accessor: 'userId',
+      },
+      {
+        Header: 'Title',
+        accessor: 'title',
       },
     ];
   });
 
   useEffect(() => {
     (async () => {
-      const result = await axios('https://api.tvmaze.com/search/shows?q=snow');
+      const result = await axios('https://jsonplaceholder.typicode.com/posts');
       setData(result.data);
     })();
   }, []);

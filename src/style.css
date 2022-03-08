@@ -45,3 +45,13 @@ table thead tr th {
   border-radius: 5px;
   border: 1px solid rgb(78, 78, 78);
 }
+
+.pagination {
+  margin-top: 10px;
+}
+
+.pagination button {
+  width: max-content;
+  height: max-content;
+  padding: 5px;
+}
