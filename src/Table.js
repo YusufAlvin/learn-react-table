@@ -54,8 +54,8 @@ const Table = ({ columns, data }) => {
                       <span>
                         {column.isSorted
                           ? column.isSortedDesc
-                            ? 'sort-desc'
-                            : 'sort-asc'
+                            ? '🔽'
+                            : '🔼'
                           : ''}
                       </span>
                       {column.render('Header')}
