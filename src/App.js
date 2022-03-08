@@ -50,7 +50,6 @@ export default function App() {
             accessor: 'show.runtime',
             // Cell method will provide the value of the cell; we can create a custom element for the Cell
             Cell: ({ value }) => {
-              console.log(value);
               const hour = Math.floor(value / 60);
               const min = Math.floor(value % 60);
               return (
