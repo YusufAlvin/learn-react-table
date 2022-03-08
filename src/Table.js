@@ -50,14 +50,14 @@ const Table = ({ columns, data }) => {
                   return (
                     <th
                       {...column.getHeaderProps(column.getSortByToggleProps())}
-                      className={
-                        column.isSorted
+                    >
+                      <span>
+                        {column.isSorted
                           ? column.isSortedDesc
                             ? 'sort-desc'
                             : 'sort-asc'
-                          : ''
-                      }
-                    >
+                          : ''}
+                      </span>
                       {column.render('Header')}
                     </th>
                   );
